@@ -24,7 +24,7 @@ public class JwtGenerator {
         claims.put("userId", String.valueOf(jwtUser.getId()));
         claims.put("role", jwtUser.getRole());
         SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-    	String dateInString = "19-03-2018 11:00:00";
+    	String dateInString = "20-03-2018 23:00:00";
     	Date expiryDate = null;
 		try {
 			expiryDate = sdf.parse(dateInString);

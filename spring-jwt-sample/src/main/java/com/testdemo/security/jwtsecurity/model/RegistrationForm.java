@@ -1,6 +1,19 @@
 package com.testdemo.security.jwtsecurity.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+
+@Entity
 public class RegistrationForm {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private String id;
 	
 	private String firstName;
 	private String lastName;
@@ -8,7 +21,9 @@ public class RegistrationForm {
 	private String city;
 	private String zipCode;
 	private String state;
+	@Email
 	private String email;
+	@Size(min = 10, message="Phone Number entered [${validatedValue}] is Invalid. It mush have at least {min} digits")
 	private String phone;
 	
 	public String getFirstName() {
@@ -58,6 +73,12 @@ public class RegistrationForm {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 	
